@@ -47,8 +47,9 @@ fetch Gersten;
 For and While Loops follow normal convention of Java and JavaScript as well, and MockingBird replaces the semicolon with a comma, because sometimes semicolons are annoying. Mockingbird isn't *that* sadistic.
 <pre><code>
 fig b: 1;
+
 for(fig j: 0; j < 10; j++){
-b ++;
+  b ++;
 }
 </code></pre>
 

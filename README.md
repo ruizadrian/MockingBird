@@ -91,6 +91,7 @@ COMMENT=  '//'TEXT'\n'
 #### Macrosyntax
 <pre><code>
 PROGRAM=  STMT';'
+BLOCK=    '{'STMT+'}'
 STMT=     DEC';'
           |CALL';'
           |'fetch' EXP';'
@@ -102,7 +103,6 @@ DEC=      'fig'ID':'EXP';'
           |'nest'ID'('ID(','ID)*')'
           |'fig''BUNDLE''['ID(','ID)*']'';'
           |BOOL
-BLOCK=    '{'STMT+'}'
 EXP=      EXP0((INC|'=')EXP0)?
 EXP0=     EXP1(('||')EXP1)*
 EXP1=     EXP2('&&'EXP2)*

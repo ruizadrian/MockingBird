@@ -24,7 +24,7 @@ Constants are allowed in MockingBird, although not essential in any aspect. For 
 <pre><code>fig DEUCEDEUCE: 22;</code></pre>
 
 #### Mathematics
-Math works the same way like JavaScript. You can refer to a JavaScript manual for that information.
+Math in MockingBird is pretty simple. It supports Addition, Subtraction, Multiplication, and Division. In terms of the order or operations, MockingBird follows PEMDAS (Parentheses, Exponent, Multiplication, Division, Addition, Subtraction).
 
 #### Booleans
 Booleans are <code>TRUE</code> and <code>FALSE</code>. Simply assign one of the two as a value to your variable.

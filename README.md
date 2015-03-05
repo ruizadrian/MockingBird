@@ -17,7 +17,7 @@ The following example is a piece of legal MockingBird code:
 Now, an illegal piece of code:
 <pre><code>fig malcolm;</code></pre>
 
-Yes, colons are required.
+Yes, semicolons are required.
 
 #### Constants
 Constants are allowed in MockingBird, although not essential in any aspect. For a constant, the identifier must be in all caps.
@@ -31,17 +31,36 @@ Booleans are <code>TRUE</code> and <code>FALSE</code>. Simply assign one of the 
 <pre><code>fig Cierto: TRUE;</code></pre>
 
 #### Functions
-Functions are called <code>Nests</code> in MockingBird, and you must be called as such. Parameter protocol are the same as they are in JavaScript, and like Java, curly braces are required.
-<pre><code>Nest Add(X, Y){
+Functions are called <code>nests</code> in MockingBird, and you must be called as such. Parameter protocol are the same as they are in JavaScript, and like Java, curly braces are required. Semicolons, however, are not required at the end of the curly braces.
+<pre><code>nest Add(X, Y){
 fig Z: X+Y;
 fetch Z;
 };</code></pre>
+
+#### Conditional Statements
+In MockingBird, the conditional statements work the same way that Java and JavaScript does. Start a conditional statement with <code>if</code>, followed by parentheses and the statement to be tested, and then the curly braces (which are still required). The end of a conditional statement is a curly brace. Again, semicolons are not required at the end of a curly brace.
+<pre><code>if(Gersten == "Hank's House"){
+fetch Gersten;
+}</code></pre>
+
+#### For and While Loops
+For and While Loops follow normal convention of Java and JavaScript as well, and MockingBird replaces the semicolon with a comma, because sometimes semicolons are annoying. Mockingbird isn't *that* sadistic.
+<pre><code>
+fig b: 1;
+for(fig j: 0; j < 10; j++){
+b ++;
+}
+</code></pre>
+
+#### Arrays
+In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Square brackets are used as well. But, here, instead of the commas, they are replaced with semicolons. And remember the semicolon at the end of the declaration/assignment.
+<pre><code> fig BUNDLE Mavericks: [Rondo; Ellis; Parsons; Nowitzki; Chandler];
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:
 <pre><code>fig is equivalent to var.
 fetch is return.
-Nest is function.
+nest is function.
 mock is print.</code></pre>
 
 #### Comments

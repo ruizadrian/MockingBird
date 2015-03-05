@@ -24,7 +24,14 @@ Constants are allowed in MockingBird, although not essential in any aspect. For 
 <pre><code>fig DEUCEDEUCE: 22;</code></pre>
 
 #### Mathematics
-Math in MockingBird is pretty simple. It supports Addition, Subtraction, Multiplication, and Division. In terms of the order or operations, MockingBird follows PEMDAS (Parentheses, Exponent, Multiplication, Division, Addition, Subtraction).
+Math in MockingBird is pretty simple. It supports Addition, Subtraction, Multiplication, and Division. In terms of the order or operations, MockingBird follows PEMDAS (Parentheses, Exponent, Multiplication, Division, Addition, Subtraction). For exponents, one would use <code>^</code> to signify a power.
+<pre><code>
+fig X: 20
+fig Y: 2
+fig Z: 4
+X+Y;
+X*(Y+Z);
+</code></pre>
 
 #### Booleans
 Booleans are <code>TRUE</code> and <code>FALSE</code>. Simply assign one of the two as a value to your variable.

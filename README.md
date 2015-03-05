@@ -72,3 +72,48 @@ mock is print.</code></pre>
 #### Comments
 MockingBird accomodates single line comments. Multiple line comments mean you are doing too much talking, so MockingBird makes sure you can't do that. Be quiet.
 <pre><code>//Comments are done the same way in Java and JavaScript.</code></pre>
+
+#### Microsyntax
+<pre><code>
+LETTER=   [a-zA-Z]
+DIGIT=    [0-9]
+KEYWORD=  'if'|'else'|'for'|'while'|'fig'|'fetch'|'mock'|'break'|'nest'|'TRUE'|'FALSE'|'BUNDLE'
+ID=       LETTER(LETTER|DIGIT)*
+NUMLIT=   DIGIT+('.'DIGIT+([Ee][+-]?DIGIT+)?)?
+STRLIT=   '"'CHAR*'"'
+CHAR=     [^\p{Cc}'"\\]|ESC
+SYMBOL=   [-+*/!,;:()]
+ESC=      [\x20\x09\x0A\x0D]|'//'
+TOKEN=    NUMLIT|STRLIT|ID|KEYWORD\SYMBOL
+COMMENT=  '//'TEXT'\n'
+</code></pre>
+
+#### Macrosyntax
+<pre><code>
+PROGRAM=  STMT';'
+STMT=     DEC';'
+          |CALL';'
+          |'fetch' EXP';'
+          |'if''('EXP')'BLOCK('else''if''('EXP')'BLOCK)*('else''('EXP')'BLOCK)?
+          |'for''('DEC';'EXP';'INC')'BLOCK
+          |'while''('EXP')'BLOCK
+          |EXP';'
+DEC=      'fig'ID':'EXP';'
+          |'nest'ID'('ID(','ID)*')'
+          |'fig''BUNDLE''['ID(','ID)*']'';'
+          |BOOL
+BLOCK=    '{'STMT+'}'
+EXP=      EXP0((INC|'=')EXP0)?
+EXP0=     EXP1(('||')EXP1)*
+EXP1=     EXP2('&&'EXP2)*
+EXP2=     EXP3('=='|'!='EXP3)?
+EXP3=     EXP4(('<'|'<='|'>='|'>'EXP4)?
+EXP4=     EXP5([+-]EXP5)*
+EXP5=     EXP6([*/]EXP6) *
+EXP6=     EXP7(('^'|'-^')EXP7)?
+EXP7=     ('-'|'!')?EXP8
+EXP8=     BOOL|NUMLIT|STRLIT|'('EXP')'
+CALL=     ID'('(EXP(','EXP)*)?
+INC=      '++'|'--'
+BOOL=     'TRUE'|'FALSE'
+</code></pre>

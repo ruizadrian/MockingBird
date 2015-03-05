@@ -31,6 +31,7 @@ fig Y: 2
 fig Z: 4
 X+Y;
 X*(Y+Z);
+Z^Y;
 </code></pre>
 
 #### Booleans

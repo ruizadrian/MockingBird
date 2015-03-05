@@ -231,22 +231,22 @@ function parseExp6() {
     }
 };
 
-function at(kind) {
+function at(type) {
     if (tokens.length === 0) {
         return false;
-    } else if (Array.isArray(kind)) {
-        return kind.some(at);
+    } else if (Array.isArray(type)) {
+        return type.some(at);
     } else {
-        return kind === tokens[0].kind;
+        return type === tokens[0].type;
     }
 };
 
-function match(kind) {
+function match(type) {
     if (tokens.length === 0) {
         return error('Unexpected end of source program');
-    } else if (kind === void 0 || kind === tokens[0].kind) {
+    } else if (type === void 0 || type === tokens[0].type) {
         return tokens.shift();
     } else {
-        return error("Expected " + kind + " but found " + tokens[0].kind, tokens[0]);
+        return error("Expected " + type + " but found " + tokens[0].type, tokens[0]);
     }
 };

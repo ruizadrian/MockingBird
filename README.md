@@ -48,10 +48,9 @@ For and While Loops follow normal convention of Java and JavaScript as well, and
 <pre><code>
 fig b: 1;
 
-for(fig j: 0; j < 10; j++){
+for(fig j: 0, j < 10, j++){
   b ++;
-}
-</code></pre>
+}</code></pre>
 
 #### Arrays
 In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Square brackets are used as well. But, here, instead of the commas, they are replaced with semicolons. And remember the semicolon at the end of the declaration/assignment.

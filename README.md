@@ -40,14 +40,13 @@ fig Z: X+Y;
 #### Conditional Statements
 In MockingBird, the conditional statements work the same way that Java and JavaScript does. Start a conditional statement with <code>if</code>, followed by parentheses and the statement to be tested, and then the curly braces (which are still required). The end of a conditional statement is a curly brace. Again, semicolons are not required at the end of a curly brace.
 <pre><code>if(Gersten == "Hank's House"){
-fetch Gersten;
+  fetch Gersten;
 }</code></pre>
 
 #### For and While Loops
 For and While Loops follow normal convention of Java and JavaScript as well, and MockingBird replaces the semicolon with a comma, because sometimes semicolons are annoying. Mockingbird isn't *that* sadistic.
 <pre><code>
 fig b: 1;
-
 for(fig j: 0, j < 10, j++){
   b ++;
 }</code></pre>

@@ -3,7 +3,7 @@ Welcome to the official repository of the MockingBird Programming Language.
 ![MockingBird](http://github.com/J-Play/MockingBird/blob/master/Logo.png)
 
 ## 1. Introduction
-Mockingbird is a Java/JavaScript based programming language developed by Jordan C. McRae. The name MockingBird was inspired by the official state bird of Texas, from which McRae hails. MockingBird aims to combine the loose and relaxed grammar of JavaScript with the strict and precise syntax and structure of Java with a few unique features derivative of other languages.
+Mockingbird is a Java/JavaScript based programming language. The name MockingBird was inspired by the official state bird of Texas. MockingBird aims to combine the loose and relaxed grammar of JavaScript with the strict and precise syntax and structure of Java with a few unique features derivative of other languages.
 
 ## 2. Features
 #### Variable Declaration

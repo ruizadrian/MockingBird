@@ -34,7 +34,7 @@ Booleans are <code>TRUE</code> and <code>FALSE</code>. Simply assign one of the 
 Functions are called <code>nests</code> in MockingBird, and you must be called as such. Parameter protocol are the same as they are in JavaScript, and like Java, curly braces are required. Semicolons, however, are not required at the end of the curly braces.
 <pre><code>nest Add(X, Y){
 fig Z: X+Y;
-fetch Z;
+  fetch Z;
 };</code></pre>
 
 #### Conditional Statements
@@ -54,7 +54,7 @@ b ++;
 
 #### Arrays
 In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Square brackets are used as well. But, here, instead of the commas, they are replaced with semicolons. And remember the semicolon at the end of the declaration/assignment.
-<pre><code> fig BUNDLE Mavericks: [Rondo; Ellis; Parsons; Nowitzki; Chandler];
+<pre><code> fig BUNDLE Mavericks: [Rondo; Ellis; Parsons; Nowitzki; Chandler]; </code></pre>
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:

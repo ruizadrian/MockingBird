@@ -15,8 +15,7 @@ var scanner = require('./scanner'),
     Type = require('./entities/type'),
     VariableDeclaration = require('./entities/variabledeclaration'),
     AssignmentStatement = require('./entities/assignmentstatement'),
-    ReadStatement = require('./entities/readstatement'),
-    WriteStatement = require('./entities/writestatement'),
+    MockStatement = require('./entities/mockstatement'),
     WhileStatement = require('./entities/whilestatement'),
     ConditionalStatement = require('.entities/conditionalstatement'),
     ForStatement = require('.entities/forstatement'),
@@ -46,7 +45,7 @@ function parseBlock() {
     while (true) {
         statements.push(parseStatement());
         match(';');
-        if (!at(['var', 'ID', 'read', 'write', 'while'])) {
+        if (!at(['var', 'ID', 'mock', 'while', 'if', 'for'])) {
             break;
         }
     }
@@ -58,10 +57,8 @@ function parseStatement() {
         return parseVariableDeclaration();
     } else if (at('ID')) {
         return parseAssignmentStatement();
-    } else if (at('read')) {
-        return parseReadStatement();
-    } else if (at('write')) {
-        return parseWriteStatement();
+    } else if (at('mock')) {
+        return parseMockStatement();
     } else if (at('while')) {
         return parseWhileStatement()
     } else if (at('if')) {
@@ -112,28 +109,16 @@ function parseArray(type){
     return new ArrayEntity(type, elements)
 }
 
-function parseReadStatement() {
-    var variables;
-    match('read');
-    variables = [];
-    variables.push(new VariableReference(match('ID')));
-    while (at(',')) {
-        match();
-        variables.push(new VariableReference(match('ID')));
-    }
-    return new ReadStatement(variables);
-};
-
-function parseWriteStatement() {
+function parseMockStatement() {
     var expressions;
-    match('write');
+    match('mock');
     expressions = [];
     expressions.push(parseExpression());
     while (at(',')) {
         match();
         expressions.push(parseExpression());
     }
-    return new WriteStatement(expressions);
+    return new MockStatement(expressions);
 };
 
 function parseWhileStatement() {

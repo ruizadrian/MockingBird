@@ -45,15 +45,14 @@ In MockingBird, the conditional statements work the same way that Java and JavaS
 
 #### For and While Loops
 For and While Loops follow normal convention of Java and JavaScript as well, and MockingBird replaces the semicolon with a comma, because sometimes semicolons are annoying. Mockingbird isn't *that* sadistic.
-<pre><code>
-fig b: 1;
+<pre><code>fig b: 1;
 for(fig j: 0, j < 10, j++){
   b ++;
 }</code></pre>
 
 #### Arrays
-In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Square brackets are used as well. But, here, instead of the commas, they are replaced with semicolons. And remember the semicolon at the end of the declaration/assignment.
-<pre><code> fig BUNDLE Mavericks: [Rondo; Ellis; Parsons; Nowitzki; Chandler]; </code></pre>
+In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Besides that, normal convention is followed. And remember the semicolon at the end of the declaration/assignment.
+<pre><code> fig BUNDLE Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:

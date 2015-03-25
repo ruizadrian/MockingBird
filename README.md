@@ -35,8 +35,8 @@ Z^Y;
 </code></pre>
 
 #### Booleans
-Booleans are <code>TRUE</code> and <code>FALSE</code>. Simply assign one of the two as a value to your variable.
-<pre><code>Fig Cierto: TRUE;</code></pre>
+Booleans are <code>JA</code> and <code>NEIN</code>. Simply assign one of the two as a value to your variable.
+<pre><code>Fig Cierto: JA;</code></pre>
 
 #### Functions
 Functions are called <code>nests</code> in MockingBird, and you must be called as such. Parameter protocol are the same as they are in JavaScript, and like Java, curly braces are required. Semicolons, however, are not required at the end of the curly braces.

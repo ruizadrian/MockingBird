@@ -3,7 +3,7 @@ Welcome to the official repository of the MockingBird Programming Language.
 ![alt tag](https://github.com/ruizadrian/MockingBird/blob/master/Images/Logo.png)
 
 ## 1. Introduction
-Mockingbird is a Java/JavaScript based programming language. The name MockingBird was inspired by the official state bird of Texas. MockingBird aims to combine the loose and relaxed grammar of JavaScript with the strict and precise syntax and structure of Java with a few unique features derivative of other languages.
+Mockingbird is a Java/JavaScript based programming language. The name MockingBird was inspired by the official state bird of Texas. MockingBird aims to combine the loose and relaxed grammar of JavaScript with the strict and precise syntax and structure of Java with a few unique features derivative of other languages. As a result, MockingBird might be one of the strictest languages you will ever program with, and it may make you mad.
 
 ## 2. Features
 #### Variable Declaration
@@ -84,7 +84,7 @@ STRLIT=   '"'CHAR*'"'
 CHAR=     [^\p{Cc}'"\\]|ESC
 SYMBOL=   [-+*/!,;:()]
 ESC=      [\x20\x09\x0A\x0D]|'//'
-TOKEN=    NUMLIT|STRLIT|ID|KEYWORD\SYMBOL
+TOKEN=    NUMLIT|STRLIT|ID|KEYWORD|SYMBOL
 COMMENT=  '//'TEXT'\n'
 </code></pre>
 

@@ -70,7 +70,7 @@ nest is function.
 mock is print.</code></pre>
 
 #### Comments
-MockingBird accomodates single line comments. Multiple line comments mean you are doing too much talking, so MockingBird makes sure you can't do that. Be quiet.
+MockingBird accomodates single line comments. Multiple line comments mean you are doing too much talking, so MockingBird makes sure you can't do that, by not supporting it. Be quiet.
 <pre><code>//Comments are done the same way in Java and JavaScript.</code></pre>
 
 #### Microsyntax

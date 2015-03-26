@@ -77,7 +77,7 @@ MockingBird accomodates single line comments. Multiple line comments mean you ar
 <pre><code>
 LETTER=   [a-zA-Z]
 DIGIT=    [0-9]
-KEYWORD=  'if'|'else'|'for'|'while'|'fig'|'fetch'|'mock'|'break'|'nest'|'TRUE'|'FALSE'|'BUNDLE'
+KEYWORD=  'If'|'Else'|'For'|'While'|'Fig'|'Fetch'|'Mock'|'Break'|'Nest'|'JA'|'NEIN'
 ID=       LETTER(LETTER|DIGIT)*
 NUMLIT=   DIGIT+('.'DIGIT+([Ee][+-]?DIGIT+)?)?
 STRLIT=   '"'CHAR*'"'

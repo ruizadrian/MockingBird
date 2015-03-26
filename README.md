@@ -77,7 +77,7 @@ MockingBird accomodates single line comments. Multiple line comments mean you ar
 <pre><code>
 LETTER=   [a-zA-Z]
 DIGIT=    [0-9]
-KEYWORD=  'if'|'else'|'for'|'while'|'fig'|'fetch'|'mock'|'break'|'nest'|'TRUE'|'FALSE'|'BUNDLE'
+KEYWORD=  'If'|'Else'|'For'|'While'|'Fig'|'Fetch'|'Mock'|'Break'|'Nest'|'JA'|'NEIN'|
 ID=       LETTER(LETTER|DIGIT)*
 NUMLIT=   DIGIT+('.'DIGIT+([Ee][+-]?DIGIT+)?)?
 STRLIT=   '"'CHAR*'"'
@@ -94,14 +94,14 @@ PROGRAM=  STMT';'
 BLOCK=    '{'STMT+'}'
 STMT=     DEC';'
           |CALL';'
-          |'fetch' EXP';'
-          |'if''('EXP')'BLOCK('else''if''('EXP')'BLOCK)*('else''('EXP')'BLOCK)?
-          |'for''('DEC';'EXP';'INC')'BLOCK
-          |'while''('EXP')'BLOCK
+          |'Fetch' EXP';'
+          |'If''('EXP')'BLOCK('Else''If''('EXP')'BLOCK)*('Else''('EXP')'BLOCK)?
+          |'For''('DEC';'EXP';'INC')'BLOCK
+          |'While''('EXP')'BLOCK
           |EXP';'
-DEC=      'fig'ID':'EXP';'
-          |'nest'ID'('ID(','ID)*')'
-          |'fig''BUNDLE''['ID(','ID)*']'';'
+DEC=      'Fig'ID':'EXP';'
+          |'Nest'ID'('ID(','ID)*')'
+          |'Fig''['ID(','ID)*']'';'
           |BOOL
 EXP=      EXP0((INC|'=')EXP0)?
 EXP0=     EXP1(('||')EXP1)*
@@ -115,5 +115,5 @@ EXP7=     ('-'|'!')?EXP8
 EXP8=     BOOL|NUMLIT|STRLIT|'('EXP')'
 CALL=     ID'('(EXP(','EXP)*)?
 INC=      '++'|'--'
-BOOL=     'TRUE'|'FALSE'
+BOOL=     'JA'|'NEIN'
 </code></pre>

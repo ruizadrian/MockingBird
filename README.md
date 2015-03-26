@@ -59,7 +59,7 @@ For(Fig B: 0, B < 10, B++){
 }</code></pre>
 
 #### Arrays
-In MockingBird, you must declare an array as a <code>fig BUNDLE</code>. Besides that, normal convention is followed. And remember the semicolon at the end of the declaration/assignment.
+In MockingBird, you must declare an array as normal JavaScript convention is followed. And remember the semicolon at the end of the declaration/assignment.
 <pre><code> Fig BUNDLE Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
 
 #### Keywords

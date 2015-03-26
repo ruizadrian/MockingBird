@@ -60,7 +60,7 @@ For(Fig B: 0, B < 10, B++){
 
 #### Arrays
 In MockingBird, you must declare an array as normal JavaScript convention is followed. And remember the semicolon at the end of the declaration/assignment.
-<pre><code> Fig BUNDLE Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
+<pre><code> Fig Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:
@@ -77,7 +77,7 @@ MockingBird accomodates single line comments. Multiple line comments mean you ar
 <pre><code>
 LETTER=   [a-zA-Z]
 DIGIT=    [0-9]
-KEYWORD=  'If'|'Else'|'For'|'While'|'Fig'|'Fetch'|'Mock'|'Break'|'Nest'|'JA'|'NEIN'|
+KEYWORD=  'if'|'else'|'for'|'while'|'fig'|'fetch'|'mock'|'break'|'nest'|'TRUE'|'FALSE'|'BUNDLE'
 ID=       LETTER(LETTER|DIGIT)*
 NUMLIT=   DIGIT+('.'DIGIT+([Ee][+-]?DIGIT+)?)?
 STRLIT=   '"'CHAR*'"'
@@ -94,14 +94,14 @@ PROGRAM=  STMT';'
 BLOCK=    '{'STMT+'}'
 STMT=     DEC';'
           |CALL';'
-          |'Fetch' EXP';'
-          |'If''('EXP')'BLOCK('Else''If''('EXP')'BLOCK)*('Else''('EXP')'BLOCK)?
-          |'For''('DEC';'EXP';'INC')'BLOCK
-          |'While''('EXP')'BLOCK
+          |'fetch' EXP';'
+          |'if''('EXP')'BLOCK('else''if''('EXP')'BLOCK)*('else''('EXP')'BLOCK)?
+          |'for''('DEC';'EXP';'INC')'BLOCK
+          |'while''('EXP')'BLOCK
           |EXP';'
-DEC=      'Fig'ID':'EXP';'
-          |'Nest'ID'('ID(','ID)*')'
-          |'Fig''['ID(','ID)*']'';'
+DEC=      'fig'ID':'EXP';'
+          |'nest'ID'('ID(','ID)*')'
+          |'fig''BUNDLE''['ID(','ID)*']'';'
           |BOOL
 EXP=      EXP0((INC|'=')EXP0)?
 EXP0=     EXP1(('||')EXP1)*
@@ -115,5 +115,5 @@ EXP7=     ('-'|'!')?EXP8
 EXP8=     BOOL|NUMLIT|STRLIT|'('EXP')'
 CALL=     ID'('(EXP(','EXP)*)?
 INC=      '++'|'--'
-BOOL=     'JA'|'NEIN'
+BOOL=     'TRUE'|'FALSE'
 </code></pre>

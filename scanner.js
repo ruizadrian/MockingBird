@@ -12,7 +12,6 @@
 var fs = require('fs');
 var byline = require('byline');
 var error = require('./error');
-var BoolLit = require('./entities/booleanliteral');
 
 module.exports = function (filename, callback) {
   var baseStream = fs.createReadStream(filename, {encoding: 'utf8'});
@@ -59,16 +58,16 @@ function scan(line, linenumber, tokens) {
 	      emit(line[position++]);
 	    }
 	    
-	    //Boolean Literals
-	      // else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || BoolLit.test(line.slice(position, position + 5))) {
-	      //       if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
-	      //           emit('BOOLEAN', line.slice(position, position + 4))
-	      //           position += 4
-	      //       } else {
-	      //           emit('BOOLEAN', line.slice(position, position + 5))
-	      //           position += 5
-	      //       }
-	      //   }
+	    // Boolean Literals
+	      else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || booleanLit.test(line.slice(position, position + 5))) {
+	            if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
+	                emit('BOOLEAN', line.slice(position, position + 4))
+	                position += 4
+	            } else {
+	                emit('BOOLEAN', line.slice(position, position + 5))
+	                position += 5
+	            }
+	        }
 
 	    // Reserved words or identifiers
 	      else if (/[A-Za-z]/.test(line[position])) {
@@ -89,8 +88,16 @@ function scan(line, linenumber, tokens) {
 	    
 	    }
 	    
-	    //String literals
-	    
+	    // String literals
+	  else if (/[A-Za-z]/.test(line[pos])) {
+		       while (/\w/.test(line[pos]) && pos < line.length) pos++;
+		       var word = line.substring(start, pos)
+		       if (/Fig|Nest|For|Mock|Fetch/.test(word)) {
+		         emit(word)
+		       } else {
+		         emit('STRLIT', word)
+		         }
+		         }
 	    
 	    // What doesn't belong in the language.
 	    else {

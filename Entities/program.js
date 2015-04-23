@@ -1,4 +1,4 @@
-// var initialContext = require('../analyzer').initialContext
+var initialContext = require('../analyzer').initialContext
 // var HashMap = require('hashmap').HashMap
 
 function Program(block) {

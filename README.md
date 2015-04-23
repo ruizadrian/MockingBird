@@ -60,7 +60,7 @@ For(Fig B: 0, B < 10, B++){
 
 #### Arrays
 In MockingBird, you must declare an array as normal JavaScript convention is followed. And remember the semicolon at the end of the declaration/assignment.
-<pre><code> Fig Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
+<pre><code> Fig Mavericks: [Harris, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:

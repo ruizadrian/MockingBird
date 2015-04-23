@@ -89,9 +89,9 @@ function scan(line, linenumber, tokens) {
 	    }
 	    
 	    // String literals
-	  else if (/[A-Za-z]/.test(line[pos])) {
-		       while (/\w/.test(line[pos]) && pos < line.length) pos++;
-		       var word = line.substring(start, pos)
+	  else if (/[A-Za-z]/.test(line[position])) {
+		       while (/\w/.test(line[position]) && position < line.length) position++;
+		       var word = line.substring(start, position)
 		       if (/Fig|Nest|For|Mock|Fetch/.test(word)) {
 		         emit(word)
 		       } else {

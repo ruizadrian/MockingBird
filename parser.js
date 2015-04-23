@@ -14,17 +14,13 @@ var scanner = require('./scanner'),
     Block = require('./entities/block'),
     Type = require('./entities/type'),
     VariableDeclaration = require('./entities/variabledeclaration'),
-    AssignmentStatement = require('./entities/assignmentstatement'),
-    MockStatement = require('./entities/mockstatement'),
-    WhileStatement = require('./entities/whilestatement'),
+    FetchStatement = require('./entities/fetchstatement'),
     ConditionalStatement = require('.entities/conditionalstatement'),
     ForStatement = require('.entities/forstatement'),
-    ArrayEntity = require('./entities/arrayentity'),
-    IntegerLiteral = require('./entities/integerliteral'),
-    BooleanLiteral = require('./entities/booleanliteral'),
-    VariableReference = require('./entities/variablereference'),
-    BinaryExpression = require('./entities/binaryexpression'),
-    UnaryExpression = require('./entities/unaryexpression');
+    WhileStatement = require('.entities/whilestatement'),
+    ArrayLit = require('./entities/array'),
+    NumLit = require('./entities/numberliteral'),
+    BoolLit = require('./entities/booleanliteral');
 
 var tokens = [];
 
@@ -45,7 +41,7 @@ function parseBlock() {
     while (true) {
         statements.push(parseStatement());
         match(';');
-        if (!at(['var', 'ID', 'mock', 'while', 'if', 'for'])) {
+        if (!at(['Fig', 'ID', 'Mock', 'While', 'If', 'For'])) {
             break;
         }
     }
@@ -53,26 +49,26 @@ function parseBlock() {
 };
 
 function parseStatement() {
-    if (at('var')) {
+    if (at('Fig')) {
         return parseVariableDeclaration();
     } else if (at('ID')) {
         return parseAssignmentStatement();
-    } else if (at('mock')) {
+    } else if (at('Mock')) {
         return parseMockStatement();
-    } else if (at('while')) {
+    } else if (at('While')) {
         return parseWhileStatement()
-    } else if (at('if')) {
+    } else if (at('If')) {
         return parseConditionalStatement()
-    } else if (at('for')) {
+    } else if (at('For')) {
         return parseForStatement()
     } else {
-        return error('Statement expected', tokens[0]);
+        return error('STATEMENT REQUIRED', tokens[0]);
     }
 };
 
 function parseVariableDeclaration() {
     var id, type;
-    match('var');
+    match('Fig');
     id = match('ID');
     match(':');
     type = parseType();
@@ -96,7 +92,7 @@ function parseAssignmentStatement() {
 };
 
 function parseArray(type){
-    match('[')
+	match('[')
     var elements = []
     if(!at(']')){
         elements.push(parseExpression())
@@ -111,7 +107,7 @@ function parseArray(type){
 
 function parseMockStatement() {
     var expressions;
-    match('mock');
+    match('Mock');
     expressions = [];
     expressions.push(parseExpression());
     while (at(',')) {
@@ -123,24 +119,24 @@ function parseMockStatement() {
 
 function parseWhileStatement() {
     var body, condition;
-    match('while');
+    match('While');
     condition = parseExpression();
     match('loop');
     body = parseBlock();
-    match('end');
+    match('End');
     return new WhileStatement(condition, body);
 };
 
 function parseConditionalStatement() {
     var conditionals = [],
         defaultAct
-    match('if')
+    match('If')
     conditionals.push(parseConditional())
-    while (at('else') && next('if')) {
-        match(['else','if'])
+    while (at('Else') && next('If')) {
+        match(['Else','If'])
         conditionals.push(parseConditional())
     }
-    if (at('else')) {
+    if (at('Else')) {
         match()
         defaultAct = parseBlock()
     }
@@ -172,7 +168,7 @@ function parseExp1() {
  function parseExp2() {
     var left, op, right;
     left = parseExp3();
-    if (at(['<', '<=', '==', '!=', '>=', '>'])) {
+    if (at(['==', '!='])) {
         op = match();
         right = parseExp3();
         left = new BinaryExpression(op, left, right);
@@ -180,10 +176,10 @@ function parseExp1() {
     return left;
 };
 
-function arseExp3() {
+function ParseExp3() {
     var left, op, right;
     left = parseExp4();
-    while (at(['+', '-'])) {
+    while (at(['=', '>', '<'])) {
         op = match();
         right = parseExp4();
         left = new BinaryExpression(op, left, right);
@@ -194,7 +190,7 @@ function arseExp3() {
 function parseExp4() {
     var left, op, right;
     left = parseExp5();
-    while (at(['*', '/'])) {
+    while (at(['+', '-'])) {
         op = match();
         right = parseExp5();
         left = new BinaryExpression(op, left, right);
@@ -204,7 +200,7 @@ function parseExp4() {
 
 function parseExp5() {
     var op, operand;
-    if (at(['-', 'not'])) {
+    if (at(['*', '/'])) {
         op = match();
         operand = parseExp6();
         return new UnaryExpression(op, operand);
@@ -214,20 +210,42 @@ function parseExp5() {
 };
 
 function parseExp6() {
+    var op, operand;
+    if (at(['^', '-^'])) {
+        op = match();
+        operand = parseExp7();
+        return new UnaryExpression(op, operand);
+    } else {
+        return parseExp7();
+    }
+};
+
+function parseExp7() {
+    var op, operand;
+    if (at(['-', '!'])) {
+        op = match();
+        operand = parseExp8();
+        return new UnaryExpression(op, operand);
+    } else {
+        return parseExp8();
+    }
+};
+
+function parseExp8() {
     var expression;
-    if (at(['true', 'false'])) {
-        return new BooleanLiteral(match().lexeme);
-    } else if (at('INTLIT')) {
-        return new IntegerLiteral(match().lexeme);
+    if (at(['JA', 'NEIN'])) {
+        return new BoolL(match().lexeme);
+    } else if (at('NUMLIT')) {
+        return new NumLit(match().lexeme);
     } else if (at('ID')) {
-        return new VariableReference(match());
+        return new VariableDeclaration(match());
     } else if (at('(')) {
         match();
         expression = parseExpression();
         match(')');
         return expression;
     } else {
-        return error('Illegal start of expression', tokens[0]);
+        return error('ILLEGAL EXPRESSION START', tokens[0]);
     }
 };
 
@@ -247,6 +265,6 @@ function match(type) {
     } else if (type === void 0 || type === tokens[0].type) {
         return tokens.shift();
     } else {
-        return error("Expected " + type + " but found " + tokens[0].type, tokens[0]);
+        return error("REQUIRED " + type + " BUT FOUND " + tokens[0].type, tokens[0]);
     }
 };

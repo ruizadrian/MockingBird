@@ -1,5 +1,5 @@
-var initialContext = require('../analyzer').initialContext
-var HashMap = require('hashmap').HashMap
+// var initialContext = require('../analyzer').initialContext
+// var HashMap = require('hashmap').HashMap
 
 function Program(block) {
   this.block = block

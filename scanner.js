@@ -12,6 +12,7 @@
 var fs = require('fs');
 var byline = require('byline');
 var error = require('./error');
+var BoolLit = require('./entities/booleanliteral');
 
 module.exports = function (filename, callback) {
   var baseStream = fs.createReadStream(filename, {encoding: 'utf8'});
@@ -59,15 +60,15 @@ function scan(line, linenumber, tokens) {
 	    }
 	    
 	    //Boolean Literals
-	      else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || booleanLit.test(line.slice(position, position + 5))) {
-	            if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
-	                emit('BOOLEAN', line.slice(position, position + 4))
-	                position += 4
-	            } else {
-	                emit('BOOLEAN', line.slice(position, position + 5))
-	                position += 5
-	            }
-	        }
+	      // else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || BoolLit.test(line.slice(position, position + 5))) {
+	      //       if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
+	      //           emit('BOOLEAN', line.slice(position, position + 4))
+	      //           position += 4
+	      //       } else {
+	      //           emit('BOOLEAN', line.slice(position, position + 5))
+	      //           position += 5
+	      //       }
+	      //   }
 
 	    // Reserved words or identifiers
 	      else if (/[A-Za-z]/.test(line[position])) {

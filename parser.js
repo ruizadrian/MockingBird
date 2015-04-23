@@ -234,7 +234,7 @@ function parseExp7() {
 function parseExp8() {
     var expression;
     if (at(['JA', 'NEIN'])) {
-        return new BoolL(match().lexeme);
+        return new BoolLit(match().lexeme);
     } else if (at('NUMLIT')) {
         return new NumLit(match().lexeme);
     } else if (at('ID')) {

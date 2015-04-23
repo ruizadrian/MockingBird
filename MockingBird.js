@@ -15,7 +15,7 @@ var argv = require('optimist')
 
 var scan = require('./scanner')
 var parse = require('./parser')
-var generate = require('./generators/' + argv.target + 'generator')
+//var generate = require('./generators/' + argv.target + 'generator')
 
 scan(argv._[0], function (tokens) {
   if (argv.t) {
@@ -27,13 +27,13 @@ scan(argv._[0], function (tokens) {
     console.log(program.toString())
     return
   }
-  if (argv.o) {
-    program = program.optimize()
-  }
-  program.analyze()
-  if (argv.i) {
-    program.showSemanticGraph()
-    return
-  }
+ // if (argv.o) {
+ //   program = program.optimize()
+ // }
+ // program.analyze()
+ // if (argv.i) {
+ //   program.showSemanticGraph()
+ //   return
+ // }
   generate(program)
 })

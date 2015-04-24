@@ -58,16 +58,16 @@ function scan(line, linenumber, tokens) {
 	      emit(line[position++]);
 	    }
 	    
-	    //Boolean Literals
-	      else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || booleanLit.test(line.slice(position, position + 5))) {
-	            if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
-	                emit('BOOLEAN', line.slice(position, position + 4))
-	                position += 4
-	            } else {
-	                emit('BOOLEAN', line.slice(position, position + 5))
-	                position += 5
-	            }
-	        }
+	    // Boolean Literals
+	      // else if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4)) || booleanLit.test(line.slice(position, position + 5))) {
+	      //       if (/^(?:JA|NEIN)$/.test(line.slice(position, position + 4))) {
+	      //           emit('BOOLEAN', line.slice(position, position + 4))
+	      //           position += 4
+	      //       } else {
+	      //           emit('BOOLEAN', line.slice(position, position + 5))
+	      //           position += 5
+	      //       }
+	      //   }
 
 	    // Reserved words or identifiers
 	      else if (/[A-Za-z]/.test(line[position])) {
@@ -76,7 +76,7 @@ function scan(line, linenumber, tokens) {
 	      if (/^(?:Fig|Nest|Fetch|Mock|JA|NEIN)$/.test(word)) {
 	        emit('KEYWORD', word)
 	      } else {
-	        emit('ID', word)
+	        emit('STRLIT', word)
 	      }
 	      
 	     
@@ -88,8 +88,16 @@ function scan(line, linenumber, tokens) {
 	    
 	    }
 	    
-	    //String literals
-	    
+	    // String literals
+	  //else if (/[A-Za-z]/.test(line[position])) {
+		       //while (/\w/.test(line[position]) && position < line.length) position++;
+		      // var word = line.substring(start, position)
+		      // if (/Fig|Nest|For|Mock|Fetch/.test(word)) {
+		      //   emit(word)
+		      // } else {
+		      //   emit('STRLIT', word)
+		      //   }
+		      //   }
 	    
 	    // What doesn't belong in the language.
 	    else {

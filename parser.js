@@ -15,9 +15,9 @@ var scanner = require('./scanner'),
     Type = require('./entities/type'),
     VariableDeclaration = require('./entities/variabledeclaration'),
     FetchStatement = require('./entities/fetchstatement'),
-    ConditionalStatement = require('.entities/conditionalstatement'),
-    ForStatement = require('.entities/forstatement'),
-    WhileStatement = require('.entities/whilestatement'),
+    ConditionalStatement = require('./entities/conditionalstatement'),
+    ForStatement = require('./entities/forstatement'),
+    WhileStatement = require('./entities/whilestatement'),
     ArrayLit = require('./entities/array'),
     NumLit = require('./entities/numberliteral'),
     BoolLit = require('./entities/booleanliteral');
@@ -234,7 +234,7 @@ function parseExp7() {
 function parseExp8() {
     var expression;
     if (at(['JA', 'NEIN'])) {
-        return new BoolL(match().lexeme);
+        return new BoolLit(match().lexeme);
     } else if (at('NUMLIT')) {
         return new NumLit(match().lexeme);
     } else if (at('ID')) {

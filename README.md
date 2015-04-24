@@ -12,7 +12,7 @@ Like JavaScript, MockingBird doesn't require you to have data types when declari
 Also important to note is that variables are camel-cased by convention, but the first letter of your identifier is to be capitilized as well.
 
 The following example is a piece of legal MockingBird code:
-<pre><code>Fig Jordan: "The Grand Prince";</code></pre>
+<pre><code>Fig Statement: "The MockingBird yacked his tea at the sight of the average Phoenix.";</code></pre>
 
 Now, an illegal piece of code:
 <pre><code>Fig malcolm;</code></pre>
@@ -60,7 +60,7 @@ For(Fig B: 0, B < 10, B++){
 
 #### Arrays
 In MockingBird, you must declare an array as normal JavaScript convention is followed. And remember the semicolon at the end of the declaration/assignment.
-<pre><code> Fig Mavericks: [Rondo, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
+<pre><code> Fig Mavericks: [Harris, Ellis, Parsons, Nowitzki, Chandler]; </code></pre>
 
 #### Keywords
 MockingBird's keywords are meant to be reflective of a Bird's life:
